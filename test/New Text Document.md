@@ -1,28 +1,12 @@
 ---
-sort: 12
+sort: 13
 ---
+#DCDC converter
 
-# 滤波器
+Boost topology
+![Octocat](http://mianbaoban-assets.oss-cn-shenzhen.aliyuncs.com/xinyu-images/MBXY-CR-720862fc105336a2319fda48947652b3.png)
 
-## 为什么我们需要滤波器？
-
- 随着移动设备之间数据传输和通信需求的增加，尤其是所需带宽的增加，越来越多的频段被用于移动数据（2G 到 5G）、WiFi 甚至简单的电话通话。这些需要彼此适当隔离，以避免串扰和不需要的噪声信号。为了实现这一点，使用了滤波器：它们只允许某些频率通过，并且根据这些频率的范围，可以分为低通、高通、带通和带阻。
-
-## SAW 滤波器
-| SAW 摘要信息  															  ||
-| --------------------------------------------------------------------------- ||
-| （+）通常比BAW便宜														  ||
-| （+）体积小于传统的腔体和陶瓷滤波器										  || 
-| （+）插入损耗低/抑制性较好 								                  || 
-| （+）适用于GSM、CDMA、3G和一些4G频段								          ||
-| （-）频率达到1GHz以上时，选择性下降，但SAW的可工作频率上限约为2.7GHz 	      || 
-| （-）频率超过2.7GHz时，由于性能下降，SAW的使用受到限制   					  || 
-| （-）这些设备对温度敏感——基材在较高温度下变得更易弯折，会使声速受到负面影响 || 
-
-### SAW 滤波器 的结构是什么？
-![Octocat](https://pic2.zhimg.com/v2-66a7e52176d9c3f42f5aef50a095d3ce_1440w.jpg?source=172ae18b)
-```tip
-Set config `plugins: [jekyll-avatar]`
-
-For documentation, see: [https://github.com/benbalter/jekyll-avatar](https://github.com/benbalter/jekyll-avatar)
-```
+首先说下最基本的一个工作原理。
+> 上图中MOS管就是一个开关，只要这个速度够快（开关频率够高），控制好导通与关断时间（充放电时间），配合输出滤波电容，就可以得到基本稳定的Vo了，也就是输出电压。
+> 我们来简单看一下过程。
+> 在开关导通的时候，电感L接地，二极管截止，Vi对电感L进行充电，电感两端电压是Vi。
