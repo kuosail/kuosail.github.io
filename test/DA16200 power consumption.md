@@ -19,27 +19,27 @@ sort: 15
 
 打开一个手机热点，注意频段要为2.4Ghz才能被搜到。根据[DA16200 GETTING START GUIDE](https://www.dialog-semiconductor.com/sites/default/files/2021-12/UM-WI-056-DA16200_DA16600_FreeRTOS_Getting_Started_Guide_Rev_1.1.pdf) 4.6.1章节配置DA16200模块为station模式和开启DPM，并连接上热点。DPM中有两个要素需要注意，分别是KA time即Keep Active time和DTIM，可通过图示理解：
 
-![](image/WIFI/wifi1)
+![](https://github.com/kuosail/kuosail.github.io/blob/main/image/WIFI/wifi3.png?raw=true)
 
-![](C:\Users\qguo\Documents\GitHub\image\WIFI\Aspose.Words.067ba06c-e7d4-46a3-bb57-4092ab8e3b57.004.png)
+![](https://github.com/kuosail/kuosail.github.io/blob/main/image/WIFI/wifi4.png?raw=true)
 
 
 
 通过调整DTIM和KA time，平均功耗会有相应的变化，如图所示。当DTIM大于KA time的时候，会导致Power down mode出现异常。
 
-![](C:\Users\qguo\Documents\GitHub\image\WIFI\Aspose.Words.067ba06c-e7d4-46a3-bb57-4092ab8e3b57.005.png)
+![](https://github.com/kuosail/kuosail.github.io/blob/main/image/WIFI/wifi5.png?raw=true)
 
-![](C:\Users\qguo\Documents\GitHub\image\WIFI\Aspose.Words.067ba06c-e7d4-46a3-bb57-4092ab8e3b57.006.png)
+![](https://github.com/kuosail/kuosail.github.io/blob/main/image/WIFI/wifi6.png?raw=true)
 
 `  `DTIM用于AP传统节电模式中，多点的应用，即由AP通过设置DTIM的间隔（缺省是一个beacon时间，100ms），根据这个间隔发送组播流量。这个值不会影响单播的流量传递，如果没有开启PS的用户使用组播也不会收到影响，但是会影响开启了PS的用户接收多播数据的传递，如果设置的太小，起不到节电作用，太大又可能会影响组播通讯的质量，这个过程是一个trial-error的调整过程，只能一个一个测试调整，以达到最佳，即既可以达到最佳节电效果又不影响应用。
 
 
 测试功耗的官方工具有WIFI IOT power profile 
-![avatar](C:\Users\qguo\Documents\GitHub\image\WIFI\Aspose.Words.067ba06c-e7d4-46a3-bb57-4092ab8e3b57.007.png)， 但也可以使用Toolbox来进行测量。方法跟用开发板测量客户蓝牙产品方式类似。连接方式如图，只需要将母板的供电给到DA16200开发板，Toolbox就可以通过流经测量电阻的电流来记录功耗。
+![avatar](https://github.com/kuosail/kuosail.github.io/blob/main/image/WIFI/wifi7.png?raw=true)， 但也可以使用Toolbox来进行测量。方法跟用开发板测量客户蓝牙产品方式类似。连接方式如图，只需要将母板的供电给到DA16200开发板，Toolbox就可以通过流经测量电阻的电流来记录功耗。
 
-![avatar](C:\Users\qguo\Documents\GitHub\image\WIFI\Aspose.Words.067ba06c-e7d4-46a3-bb57-4092ab8e3b57.008.png)
+![avatar](https://github.com/kuosail/kuosail.github.io/blob/main/image/WIFI/wifi8.png?raw=true)
 
-![avatar](C:\Users\qguo\Documents\GitHub\image\WIFI\Aspose.Words.067ba06c-e7d4-46a3-bb57-4092ab8e3b57.009.png)
+![avatar](https://github.com/kuosail/kuosail.github.io/blob/main/image/WIFI/wifi9.png?raw=true)
 `
 
 
