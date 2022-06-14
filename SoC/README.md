@@ -2,7 +2,8 @@
 sort: 3
 ---
 
-# This is an incredibly long caption for a long menu
+# SoC 学习资料
+
 
 ```
 {% raw %}{% include list.liquid all=true %}{% endraw %}
